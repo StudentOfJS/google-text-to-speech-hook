@@ -1,4 +1,3 @@
-import { google } from 'googleapis';
 import { useState, useEffect } from 'react';
 import { createGoogleSpeechToText } from './createGoogleSpeechToText';
 
@@ -15,8 +14,8 @@ export const useGoogleSpeechToText = (): ITranscription => {
   const [error, setError] = useState<Error | null>(null);
   const [isListening, setIsListening] = useState(false);
 
-  let speechToText: google.speech.v1.Speech;
-  let listener: { stop: () => void; };
+  let speechToText;
+  let listener: { stop: () => void };
 
   const startListening = async () => {
     try {
